@@ -59,7 +59,7 @@ fun BaseApp() {
             MainScreen(navController = navController)
         }
         composable(AppNavItem.Blank.route) {
-            BlankScreen(navController = navController)
+            BlankScreen()
         }
     }
 }

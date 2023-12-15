@@ -1,12 +1,18 @@
 package com.example.commerce
 
+import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onNodeWithText
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.BlankScreen
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
+import org.junit.Rule
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -20,5 +26,18 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.example.commerce", appContext.packageName)
+    }
+
+    @get:Rule
+    val composeTestRule: ComposeContentTestRule = createComposeRule()
+
+    @Test
+    fun testUiDisplayed() {
+
+        composeTestRule.setContent {
+            BlankScreen()
+        }
+
+        composeTestRule.onNodeWithText("test").assertIsDisplayed()
     }
 }
